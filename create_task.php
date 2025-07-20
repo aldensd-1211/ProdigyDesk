@@ -36,7 +36,30 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 			  <?php echo stripcslashes($_GET['success']); ?>
 			</div>
       	  <?php } ?>
-				
+				<div class="input-holder">
+					<lable>Title</lable>
+					<input type="text" name="title" class="input-1" placeholder="Title"><br>
+				</div>
+				<div class="input-holder">
+					<lable>Description</lable>
+					<textarea type="text" name="description" class="input-1" placeholder="Description"></textarea><br>
+				</div>
+				<div class="input-holder">
+					<lable>Due Date</lable>
+					<input type="date" name="due_date" class="input-1" placeholder="Due Date"><br>
+				</div>
+				<div class="input-holder">
+					<lable>Assigned to</lable>
+					<select name="assigned_to" class="input-1">
+						<option value="0">Select employee</option>
+						<?php if ($users !=0) { 
+							foreach ($users as $user) {
+						?>
+                  <option value="<?=$user['id']?>"><?=$user['full_name']?></option>
+						<?php } } ?>
+					</select><br>
+				</div>
+				<button class="edit-btn">Create Task</button>
 			</form>
 			
 		</section>
